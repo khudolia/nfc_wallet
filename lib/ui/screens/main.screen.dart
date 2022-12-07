@@ -5,6 +5,12 @@ import 'cards_list/cards_list.init.dart';
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/main';
+
+  static void navigate(BuildContext context) {
+    Navigator.of(context).pushNamed(routeName);
+  }
+
   @override
   State<MainScreen> createState() => _MainScreenState();
 }

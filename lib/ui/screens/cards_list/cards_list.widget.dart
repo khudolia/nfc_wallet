@@ -3,6 +3,7 @@ import 'package:nfc_wallet/models/card.dart';
 import 'package:nfc_wallet/ui/utils/rx_builder.dart';
 
 import 'cards_list.bloc.dart';
+import 'widgets/add_card.button.dart';
 
 class CardsList extends StatelessWidget {
   const CardsList({Key? key}) : super(key: key);
@@ -18,23 +19,38 @@ class CardsList extends StatelessWidget {
           return const Center(child: Text("Loading..."));
         }
         if (cards.isEmpty) {
-          return const Center(child: Text("Empty"));
+          return Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Text("Empty"),
+                AddCartButton(),
+              ],
+            ),
+          );
         }
 
         return Stack(
           children: [
             SingleChildScrollView(
               child: Column(
-                children: cards.map(
-                  (e) => Container(
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: Text(e.name),
-                  ),
-                ).toList(),
+                children: cards
+                    .map(
+                      (e) => Container(
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Text(e.name),
+                      ),
+                    )
+                    .toList(),
               ),
+            ),
+            const Positioned(
+              right: 25,
+              bottom: 25,
+              child: AddCartButton(),
             ),
           ],
         );
