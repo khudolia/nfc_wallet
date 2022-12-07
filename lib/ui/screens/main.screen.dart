@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'cards_list/cards_list.init.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -14,16 +16,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('Your wallet'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
+      body: const CardListInit(),
     );
   }
 }
