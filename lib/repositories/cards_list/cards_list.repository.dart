@@ -26,7 +26,11 @@ class CardsListRepository extends LocalRepository {
 
   updateCard(CardModel card) => updateItem(card.id, card);
 
-  List<CardModel> getAllCards() => getAllItems() as List<CardModel>;
+  List<CardModel>? getAllCards() {
+    _cards.add(getAllItems() as List<CardModel>);
+
+    return _cards.value;
+  }
 
   static CardsListRepository of(BuildContext context) =>
       ProviderService.of<CardsListRepository>(context);

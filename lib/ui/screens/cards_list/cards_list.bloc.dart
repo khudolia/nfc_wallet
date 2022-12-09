@@ -12,6 +12,10 @@ class CardsListBloc extends Bloc {
 
   ValueStream<List<CardModel>?> get cards => _cardsListRepository.cards;
 
+  void getCards() {
+    _cardsListRepository.getAllCards();
+  }
+
   @override
   void dispose() {
     super.dispose();

@@ -6,7 +6,7 @@ part 'card.g.dart';
 
 @HiveType(typeId: ModelConstants.cardId)
 class CardModel {
-  CardModel(this.name, this.hexData);
+  CardModel(this.name, this.handle, this.hexData);
 
   @HiveField(0)
   final String id = const Uuid().v1();
@@ -15,5 +15,8 @@ class CardModel {
   final String name;
 
   @HiveField(2)
-  final String hexData;
+  final String handle;
+
+  @HiveField(3)
+  final Map<String, dynamic> hexData;
 }

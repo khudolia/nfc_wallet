@@ -331,6 +331,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  nfc_emulator:
+    dependency: "direct main"
+    description:
+      name: nfc_emulator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0-nullsafety.0"
   nfc_manager:
     dependency: "direct main"
     description:

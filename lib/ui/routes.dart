@@ -13,6 +13,12 @@ Route<dynamic> _generateRoute(RouteSettings settings, BuildContext context) {
         settings: settings,
         builder: (context) => const CardScanInit(),
       );
+    case CardDetailsInit.routeName:
+      final args = settings.arguments as CardDetailsArgs;
+      return MaterialPageRoute<dynamic>(
+        settings: settings,
+        builder: (context) => CardDetailsInit(args: args),
+      );
     default:
       throw ArgumentError.value(
         settings.name,

@@ -19,18 +19,21 @@ class CardModelAdapter extends TypeAdapter<CardModel> {
     return CardModel(
       fields[1] as String,
       fields[2] as String,
+      (fields[3] as Map).cast<String, dynamic>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, CardModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.name)
       ..writeByte(2)
+      ..write(obj.handle)
+      ..writeByte(3)
       ..write(obj.hexData);
   }
 

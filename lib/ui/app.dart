@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nfc_wallet/initializer.dart';
+import 'package:nfc_wallet/ui/screens/card_details/card_details.init.dart';
 import 'package:nfc_wallet/ui/screens/card_scan/card_scan.init.dart';
 import 'package:nfc_wallet/ui/screens/main.screen.dart';
 

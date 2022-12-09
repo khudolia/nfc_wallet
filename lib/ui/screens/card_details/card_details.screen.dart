@@ -1,17 +1,17 @@
 import 'package:animated_gesture_detector/animated_gesture_detector.dart';
 import 'package:flutter/material.dart';
 import 'package:nfc_wallet/models/card.dart';
-import 'package:nfc_wallet/ui/screens/card_scan/card_scan.bloc.dart';
+import 'package:nfc_wallet/ui/screens/card_details/card_details.bloc.dart';
 import 'package:nfc_wallet/ui/utils/rx_builder.dart';
 
-class CardScanScreen extends StatelessWidget {
-  const CardScanScreen({Key? key}) : super(key: key);
+class CardDetailsScreen extends StatelessWidget {
+  const CardDetailsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: RxBuilder<CardModel?>(
-        stream: CardScanBloc.of(context).card,
+        stream: CardDetailsBloc.of(context).card,
         builder: (context, sCard) {
           final card = sCard.data;
 
@@ -26,7 +26,6 @@ class CardScanScreen extends StatelessWidget {
                 Center(child: Text(card.handle)),
                 AnimatedGestureDetector(
                   onTap: () {
-                    CardScanBloc.of(context).saveCard();
                     Navigator.pop(context);
                   },
                   child: Container(
