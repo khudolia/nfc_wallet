@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nfc_emulator/nfc_emulator.dart';
 import 'package:nfc_wallet/models/card.dart';
 import 'package:nfc_wallet/repositories/cards_list/cards_list.repository.dart';
 import 'package:nfc_wallet/services/provider.service.dart';
@@ -16,11 +17,20 @@ class CardDetailsBloc extends Bloc {
 
   ValueStream<CardModel?> get card => _card;
 
-  void saveCard() {
-    if(card.value == null) return;
+  void startEmulating() async {
+    await NfcEmulator.startNfcEmulator("666B65630001", "cd22c716", "79e64d05ed6475d3acf405d6a9cd506b");
 
-    _cardsListRepository
-        .addCard(card.value!);
+  }
+
+  void stopEmulating() async {
+    await NfcEmulator.stopNfcEmulator();
+
+  }
+
+  @override
+  void dispose() {
+    stopEmulating();
+    super.dispose();
   }
 
   static CardDetailsBloc of(BuildContext context) =>

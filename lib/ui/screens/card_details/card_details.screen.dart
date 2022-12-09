@@ -24,9 +24,10 @@ class CardDetailsScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Center(child: Text(card.handle)),
+                Center(child: Text(card.hexData.toString())),
                 AnimatedGestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    CardDetailsBloc.of(context).startEmulating();
                   },
                   child: Container(
                     decoration: BoxDecoration(
